@@ -4,6 +4,7 @@ import SortRepos from "../components/SortRepos";
 import Repos from "../components/Repos";
 import Spinner from "../components/Spinner";
 import { useCallback, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 const HomePage = () => {
   const [userProfile, setuserProfile] = useState(null);
@@ -15,21 +16,14 @@ const HomePage = () => {
     async (username = "prajwal-pl") => {
       setLoading(true);
       try {
-        const userResponse = await fetch(
-          `https://api.github.com/users/${username}`,
-          {
-            headers: {
-              authorization: `token ${import.meta.env.VITE_GITHUB_API_KEY}`,
-            },
-          }
+        const res = await fetch(
+          `http://localhost:5000/api/user/profile/${username}`
         );
-        const userProfile = await userResponse.json();
-        setuserProfile(userProfile);
+        const { repos, userProfile } = await res.json();
 
-        const ReposRes = await fetch(userProfile.repos_url);
-        const repos = await ReposRes.json();
         repos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
         setRepos(repos);
+        setuserProfile(userProfile);
         return { userProfile, repos };
       } catch (error) {
         toast.error(error.message);
