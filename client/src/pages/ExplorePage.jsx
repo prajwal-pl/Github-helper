@@ -15,7 +15,7 @@ const ExplorePage = () => {
     ${language}&sort=stars&order=desc&per_page=10`,
         {
           headers: {
-            authorization: "token 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",
+            authorization: `token ${import.meta.env.VITE_GITHUB_API_KEY}`,
           },
         }
       );

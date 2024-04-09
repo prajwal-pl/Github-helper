@@ -19,7 +19,7 @@ const HomePage = () => {
           `https://api.github.com/users/${username}`,
           {
             headers: {
-              authorization: "token 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",
+              authorization: `token ${import.meta.env.VITE_GITHUB_API_KEY}`,
             },
           }
         );
