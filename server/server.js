@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import userRoutes from "./routes/user.routes.js";
+import exploreRoutes from "./routes/explore.route.js";
 import cors from "cors";
 
 dotenv.config();
@@ -13,6 +14,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/user", userRoutes);
+app.use("/api/explore", exploreRoutes);
 
 app.listen(5000, () => {
   console.log("Server running on port: 5000");
