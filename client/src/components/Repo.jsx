@@ -35,7 +35,7 @@ const Repo = ({ repo }) => {
           className="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5
 					py-0.5 rounded-full flex items-center gap-1"
         >
-          <FaRegStar /> {repo.startgazers_count}
+          <FaRegStar /> {repo.stargazers_count}
         </span>
         <span
           className="bg-purple-100 text-purple-800 text-xs font-medium

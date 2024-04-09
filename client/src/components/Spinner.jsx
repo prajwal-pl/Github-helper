@@ -1,6 +1,6 @@
 const Spinner = () => {
   return (
-    <div className="text-center">
+    <div className="flex justify-center h-screen items-center text-center">
       <div role="status">
         <svg
           aria-hidden="true"
