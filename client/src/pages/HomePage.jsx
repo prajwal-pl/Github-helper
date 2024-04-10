@@ -16,9 +16,7 @@ const HomePage = () => {
     async (username = "prajwal-pl") => {
       setLoading(true);
       try {
-        const res = await fetch(
-          `http://localhost:5000/api/user/profile/${username}`
-        );
+        const res = await fetch(`/api/user/profile/${username}`);
         const { repos, userProfile } = await res.json();
 
         repos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
