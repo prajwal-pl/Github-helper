@@ -21,7 +21,6 @@ const HomePage = () => {
         );
         const { repos, userProfile } = await res.json();
 
-        repos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
         setRepos(repos);
         setuserProfile(userProfile);
         return { userProfile, repos };
