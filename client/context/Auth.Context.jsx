@@ -15,9 +15,12 @@ export const AuthContextProvider = ({ children }) => {
     const checkUserLogin = async () => {
       setLoading(true);
       try {
-        const res = await fetch("/api/auth/check", {
-          credentials: "include",
-        });
+        const res = await fetch(
+          "https://github-helper-01.onrender.com/api/auth/check",
+          {
+            credentials: "include",
+          }
+        );
         const data = await res.json();
         setAuthUser(data.user);
       } catch (error) {
