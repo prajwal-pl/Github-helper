@@ -19,6 +19,7 @@ const HomePage = () => {
         const res = await fetch(`/api/user/profile/${username}`);
         const { repos, userProfile } = await res.json();
 
+        repos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
         setRepos(repos);
         setuserProfile(userProfile);
         return { userProfile, repos };
